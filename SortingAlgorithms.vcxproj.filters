@@ -29,5 +29,8 @@
     <ClInclude Include="src\selection_sort.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\merge_sort.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
