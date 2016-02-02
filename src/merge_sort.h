@@ -1,50 +1,71 @@
 #pragma once
+#include <stdlib.h>
 
-void merge(int *arr, int p, int q, int r);
+//declarations
 
-void merge_sort(int *arr, int p, int r)
+void merge_sort(int *arr, int low, int high);
+void merge(int *arr, int low, int mid, int high);
+
+void merge_sort(int *arr, int low, int high)
 {
-	if (p < r)
+	if (low < high)
 	{
-		int q = (p + r) / 2;
-		merge_sort(arr, p, q);
-		merge_sort(arr, q + 1, r);
-		merge(arr, p, q, r);
+		int mid = (low + high) / 2;
+#ifdef DEBUG
+		printf("merge sort : ");
+		for (int i = low; i <= high; ++i)
+		{
+			printf(" %d ", arr[i]);
+		}
+		printf(" \n");
+#endif
+		merge_sort(arr, low, mid);
+		merge_sort(arr, mid + 1, high);
+		merge(arr, low, mid, high);
 	}
 }
 
-void merge(int *arr, int p, int q, int r)
+void merge(int *arr, int low, int mid, int high)
 {
-	int n1 = q - p + 1;
-	int n2 = r - q;
+#ifdef DEBUG
+	printf("merge: ");
+	for (int i = low; i <= high; ++i)
+	{
+		printf(" %d ", arr[i]);
+	}
+	printf(" \n");
+#endif
 
-	int *L = new int[n1+1];
-	int *R = new int[n2+1];
+	int n1 = mid - low + 1;
+	int n2 = high - mid;
+
+	int *left_arr = (int *) malloc( sizeof(int) * (n1+1) );
+	int *right_arr = (int *) malloc( sizeof(int) * (n2 + 1) );
 
 	int i,j;
 	for (i = 0; i < n1; i++)
-		L[i] = arr[p + i];
+		left_arr[i] = arr[low + i];
 
 	for (j = 0; j < n2; j++)
-		R[j] = arr[q + j + 1];
+		right_arr[j] = arr[mid + j + 1];
 
-	L[n1] = 99999;
-	R[n2] = 99999;
-	i = 0;
-	j = 0;
+	left_arr[n1] = right_arr[n2] = 99999;
+	i =	j = 0;
 
-	for (int k = p; k < r + 1; k++)
+	for (int k = low; k < high + 1; k++)
 	{
-		if (L[i] <= R[j])
+		if (left_arr[i] <= right_arr[j])
 		{
-			arr[k] = L[i];
+			arr[k] = left_arr[i];
 			i++;
 		}
 		else
 		{
-			arr[k] = R[j];
+			arr[k] = right_arr[j];
 			j++;
 		}
 	}
 
+	free(left_arr);
+	free(right_arr);
 }
