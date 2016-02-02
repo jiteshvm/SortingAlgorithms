@@ -125,6 +125,7 @@
     <ClInclude Include="src\bubble_sort.h" />
     <ClInclude Include="src\insertion_sort.h" />
     <ClInclude Include="src\merge_sort.h" />
+    <ClInclude Include="src\quick_sort.h" />
     <ClInclude Include="src\selection_sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
