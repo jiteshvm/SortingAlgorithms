@@ -22,7 +22,7 @@ int partition(int *arr, int low, int high)
 	int temp;
 	for (int j = low; j < high; ++j)
 	{
-		if (arr[j] <= pivot)
+		if (arr[j] >= pivot)
 		{
 			i++;
 			temp = arr[i];
