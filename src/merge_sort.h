@@ -39,7 +39,7 @@ void merge(int *arr, int low, int mid, int high)
 	int n1 = mid - low + 1;
 	int n2 = high - mid;
 
-	int *left_arr = (int *) malloc( sizeof(int) * (n1+1) );
+	int *left_arr = (int *) malloc( sizeof(int) * (n1 + 1) );
 	int *right_arr = (int *) malloc( sizeof(int) * (n2 + 1) );
 
 	int i,j;

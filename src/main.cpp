@@ -10,17 +10,20 @@
 
 int main(int argc, char **argv)
 {
-	//int arr[] = { 4, 9, 1, 3, 6, 8, 2, 7, 10, 5 };
+	int arr[] = { 4, 9, 1, 3, 6, 8, 2, 7, 10, 5 };
 	//int arr[] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	//int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 	int size = ARRAY_SIZE(arr);
 
-	quick_sort(arr, 0, (ARRAY_SIZE(arr) - 1));
+	//bubble_sort(arr, size);
+	merge_sort(arr, 0, ARRAY_SIZE(arr) - 1);
+	//insertion_sort(arr, size);
+	//quick_sort(arr, 0, (ARRAY_SIZE(arr) - 1));
 
 	printf("\nSorted array : ");
 	for (int i = 0; i < size; ++i)
 	{
-		printf("%d ", *(arr + i));
+		printf("%d ", arr[i]);
 	}
 	getchar();
 	return 0;
